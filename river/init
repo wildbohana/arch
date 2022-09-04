@@ -1,0 +1,90 @@
+# Background
+#swaybg -m fill -i ~/png/lod.png &
+#swaybg -m fill -i ~/png/The_Great_Wave.jpg &
+swaybg -m fill -i ~/png/planne_faded.jpg &
+#swaybg -m fill -i ~/png/lake-cabin.jpg &
+#swaybg -m fill -i ~/png/noir.jpg &
+#swaybg -m fill -i ~/png/ssw.jpg &
+
+# Tap to click
+riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad tap enabled &
+
+# Misc:
+river-tag-overlay &
+
+rivertile &
+waybar &
+
+mako &
+foot --server &
+
+mkfifo /tmp/wobpipe &
+tail -f /tmp/wobpipe | wob &
+
+# Initial brigtness and volume
+light -S 0
+pamixer --set-volume 20
+
+# Terminal
+riverctl map normal Super Return spawn 'footclient' &
+# Web-client
+riverctl map normal Super W spawn "brave-nightly --enable-features=UseOzonePlatform --ozone-platform=wayland" &
+# Drop menu with apps
+riverctl map normal Super D spawn "fuzzel-themed" &
+# Close window
+riverctl map normal Super Q close &
+# File system
+riverctl map normal Super R spawn "footclient -e lf" &
+# Network
+# nmtui - bio nekad
+riverctl map normal Super E spawn "footclient -e iwctl" &
+# Reload config
+riverctl map normal Super+Shift R spawn "killall -9 waybar && .config/river/init" &
+# Log out
+riverctl map normal Super Escape exit &
+# Toggle fullscreen
+riverctl map normal Super F toggle-fullscreen &
+# Screenshot
+riverctl map normal Super P spawn "grim && mv *png png/screensh" &
+
+# Brightness
+riverctl map normal Super F2 spawn "lightctl --down" &
+riverctl map normal Super F3 spawn "lightctl --up" &
+
+# Previous, next and play/pause
+riverctl map normal Super F9 spawn "playerctl previous"
+riverctl map normal Super F10 spawn "playerctl play-pause"
+riverctl map normal Super F11 spawn "playerctl next"
+
+# TODO:
+# Aeroplane mode
+# riverctl map normal Super F12
+
+# Volume control
+riverctl map normal Super F6 spawn "pamixer -t" &
+riverctl map normal Super F7 spawn "volctl --down" &
+riverctl map normal Super F8 spawn "volctl --up" &
+
+# Super + Left Mouse Button to move views
+riverctl map-pointer normal Super BTN_LEFT move-view &
+# Super + Right Mouse Button to resize views
+riverctl map-pointer normal Super BTN_RIGHT resize-view &
+
+# Focus follows cursor
+riverctl focus-follows-cursor normal &
+
+# Workspaces
+for i in $(seq 1 9)
+do
+    # Tags
+    tags=$((1 << ($i - 1)))
+    # Chose focused tab
+    riverctl map normal Super $i set-focused-tags $tags &
+    # Transfer program to selected tab
+    riverctl map normal Super+Shift $i set-view-tags $tags &
+done
+
+# River layout
+riverctl default-layout rivertile
+exec rivertile -inner-gaps 3 -outer-gaps -3 -main-ratio 0.55
+
