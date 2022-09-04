@@ -1,0 +1,286 @@
+// Angelo's Waybar config
+// https://github.com/angelofallars/dotfiles
+
+// Use Sass to compile this file down to CSS and restyle my bar.
+// https://sass-lang.com/installhttps://sass-lang.com/install
+// After downloading Sass, run this in this directory
+// to compile your changes:
+// $ sass --watch . --no-source-map
+
+// NOTE: If the Japanese River workspace icons do not show up,
+// you should install the Han Sans JP font.
+// Arch Linux:
+// $ sudo pacman -S adobe-source-han-sans-jp-fonts
+
+@use 'colors';
+
+// Distance of the entire bar from the sides
+$screen-margin: 4px;
+$vertical-margin: 4px;
+
+// Margin/padding of individual modules
+$module-margin: 4px;
+$module-padding: 6px;
+
+// Font config
+$font: "JetBrains Mono Nerd Font";
+$font-size: 14px;
+$font-weight: 500;
+
+// How far away should the box shadow effect be diagonally
+$box-shadow-distance: 0px;
+
+// Border radius. Turning this option up will also round the offset shadows.
+$bar-border-radius: 0px;
+
+// -------------------------
+// Actual styling of the bar
+// -------------------------
+
+@mixin square-shadow {
+  box-shadow: $box-shadow-distance $box-shadow-distance 0 colors.$shadow;
+  margin-bottom: $box-shadow-distance;
+  margin-right: $box-shadow-distance;
+}
+
+@mixin single-module {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+
+  color: colors.$white-text;
+  background: colors.$trans-gray;
+  border-radius: 10;
+}
+
+// !! If you add new custom modules, put their class name in here.
+#backlight, #battery, #cpu, #disk, #idle_inhibitor, #keyboard-state,
+#pulseaudio, #clock, #tags, #language, #memory, #network, #sndio,
+#mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
+#custom-updates, #custom-logo
+{
+  @include single-module;
+}
+
+* {
+  min-height: 0;
+  border-radius: 10;
+  color: colors.$white-text;
+  // background: colors.$darker-stuff;
+}
+
+window#waybar {
+  color: colors.$trans-blue;
+  background: colors.$trans-black;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 0px;
+}
+
+.modules-left, .modules-center, .modules-right {
+  border-radius: 10;
+  font-family: $font;
+  font-weight: $font-weight;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+.modules-left {
+  font-size: $font-size;
+  margin-left: $screen-margin;
+  margin-right: 3px;
+}
+
+.modules-right {
+  color: colors.$white-text;
+  font-size: 14px;
+  margin-right: $screen-margin;
+}
+
+// River tags
+
+#tags button {
+  color: colors.$white-text;
+  background: colors.$trans-buttons-blue;
+  font-family: "Source Han Sans JP";
+  font-weight: 500;
+  min-width: 18px;
+  font-size: 14px;
+  border: none;
+  transition: none;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+#tags button.occupied {
+  color: colors.$red;
+  background: colors.$trans-blue;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+#tags button:hover {
+  color: colors.$green;
+  background: colors.$blue-alt;
+  box-shadow: none;
+  text-shadow: none;
+  transition: 0;
+}
+
+#tags button.focused {
+  color: colors.$cyan;
+  background: colors.$darkblue;
+}
+
+#tags button.urgent {
+  color: colors.$red;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+tooltip {
+  background: colors.$bg;
+  border-radius: 7px;
+  font-family: $font, monospace;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  padding: 20px;
+  animation-name: fadein;
+  animation-duration: 0.2s;
+  border: 2px solid colors.$fg-alt;
+  text-shadow: none;
+  color: colors.$dark-text;
+}
+
+tooltip label {
+  color: colors.$dark-text;
+}
+
+#tray {
+  @include single-module;
+  $padding: calc($module-padding / 2);
+  color: colors.$white-text;
+  background: colors.$trans-gray;
+  padding-left: $padding;
+
+  padding-right: $padding;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  border-radius: 10px;
+}
+
+#tray menu {
+  background: colors.$trans-blue;
+  color: colors.$white-text;
+  border-radius: 10px;
+  border: 2px solid colors.$trans-black;
+  padding: 4px 0;
+  font-family: $font, monospace;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+#window {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#battery {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#network {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#backlight {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#clock {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#logo {
+    color: colors.$white-text;
+    background: colors.$trans-gray;
+
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#updates {
+    color: colors.$white-text;
+    background: colors.$trans-gray;
+
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+
+#pulseaudio {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 10px;
+}
+

@@ -1,0 +1,89 @@
+{
+    "layer": "bottom",
+    "height": 45,
+    "spacing": 2,
+
+    "modules-left": ["custom/logo", "river/tags", "river/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/updates", "backlight", "pulseaudio", "network", "battery", "tray", "sway/language"],
+
+    "custom/logo": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "fuzzy-power"
+    },
+
+    "river/tags": {
+        "num-tags": 9,
+        "tag-labels": [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+    },
+
+    "river/window": {
+        "max-length": 30
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "custom/updates": {
+        "exec": "checkupdates | wc -l",
+        "interval": 60,
+        "format": " {}",
+        "tooltip": true
+    },
+
+    "backlight": {
+	"tooltip": false,
+	"format": "",
+	"interval": 1,
+        "on-scroll-up": "lightctl --up",
+	"on-scroll-down": "lightctl --down"
+    },
+
+    "pulseaudio": {
+        "on-scroll-up": "volctl --up",
+	"on-scroll-down": "volctl --down",
+        "format": "{icon}",
+        "format-muted": "Muted",
+        "format-icons": {
+            "default": [" "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " OK",
+        "tooltip-format": " via {gwaddr}",
+        "format-linked": "No IP",
+        "format-disconnected": "⚠ !OK",
+        "format-alt": "{ifname}: {essid}"
+    },
+
+    "clock": {
+        "tooltip-format": "<span rise=\"-14pt\"><big>{:%Y B}</big>\n<tt><small>{calendar}</small></tt></span>",
+        //"format": " {:%H:%M}",
+        "format": "{:%H:%M}",
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 5
+    },
+
+    "sway/language": {
+        "format": "{short} {variant}",
+    },
+
+}

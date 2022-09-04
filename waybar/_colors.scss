@@ -1,0 +1,68 @@
+// Gruvbox Material theme
+
+$red:          #ea6962;
+$orange:       #e78a4e;
+$yellow:       #d8a657;
+$green:        #52736C;
+$cyan:         #89b482;
+$blue:         #7daea3;
+$magenta:      #d3869b;
+
+$bg:           #cccccc;
+$white-text:   #cccccc;
+$dark-text:    #121212;
+$fg:           #555555;
+
+$dark-stuff:   #333333;
+$darker-stuff: #121212;
+
+$fg-opposite:  scale-color($fg, $lightness: -15%, $saturation: -25%);
+
+// Box shadow of modules automatically calculated from the background color
+$shadow:              scale-color($bg, $lightness: -40%, $saturation: -28%);
+
+$fg-alt:              $shadow;
+@if lightness($bg) < 50% {
+  $fg-alt:            scale-color($bg, $lightness: 27%);
+}
+
+// Accent color used by the River active tags
+$accent-color:        $fg;
+
+// Foreground + accent color for modules w/o backgrounds
+$fg-no-bg:            $fg;
+$accent-color-no-bg:  $shadow;
+
+// Set this to true or false depending if the mpd module is readable
+$dark-theme:          true;
+
+@if $dark-theme {
+  $fg-no-bg:             $fg-opposite;
+  $accent-color-no-bg:   $bg;
+}
+
+
+// Zeleno za TLG
+
+$trans-black: rgba(10, 10, 10, .0);
+$trans-gray: rgba(0, 0, 0, .50);
+$trans-green: rgba(20, 150, 30, .20);
+$trans-buttons: rgba(1, 1, 1, .40);
+
+$green-alt:              $shadow;
+@if lightness($green) < 50% {
+  $green-alt:            scale-color($green, $lightness: 27%);
+}
+
+// Blavo za planne
+
+// trans-blue je za zauzete dugmiće, buttons-blue je za slobodne
+$darkblue: #395580;
+$trans-blue: rgba(65, 85, 120, .50);
+$trans-buttons-blue: rgba(75, 65, 115, .20);
+
+$blue-alt:              $shadow;
+@if  lightness($blue) < 50% {
+    $blue-alt:          scale-color($blue, $lightness: 25%);
+}
+

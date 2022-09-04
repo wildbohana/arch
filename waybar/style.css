@@ -1,0 +1,233 @@
+#backlight, #battery, #cpu, #disk, #idle_inhibitor, #keyboard-state,
+#pulseaudio, #clock, #tags, #language, #memory, #network, #sndio,
+#mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
+#custom-updates, #custom-logo {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10;
+}
+
+* {
+  min-height: 0;
+  border-radius: 10;
+  color: #cccccc;
+}
+
+window#waybar {
+  color: rgba(65, 85, 120, 0.5);
+  background: rgba(10, 10, 10, 0);
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 0px;
+}
+
+.modules-left, .modules-center, .modules-right {
+  border-radius: 10;
+  font-family: "JetBrains Mono Nerd Font";
+  font-weight: 500;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+.modules-left {
+  font-size: 14px;
+  margin-left: 4px;
+  margin-right: 3px;
+}
+
+.modules-right {
+  color: #cccccc;
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+#tags button {
+  color: #cccccc;
+  background: rgba(75, 65, 115, 0.2);
+  font-family: "Source Han Sans JP";
+  font-weight: 500;
+  min-width: 18px;
+  font-size: 14px;
+  border: none;
+  transition: none;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+#tags button.occupied {
+  color: #ea6962;
+  background: rgba(65, 85, 120, 0.5);
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+
+#tags button:hover {
+  color: #52736C;
+  background: #7a7a7a;
+  box-shadow: none;
+  text-shadow: none;
+  transition: 0;
+}
+
+#tags button.focused {
+  color: #89b482;
+  background: #395580;
+}
+
+#tags button.urgent {
+  color: #ea6962;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+tooltip {
+  background: #cccccc;
+  border-radius: 7px;
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 20px;
+  animation-name: fadein;
+  animation-duration: 0.2s;
+  border: 2px solid #7a7a7a;
+  text-shadow: none;
+  color: #121212;
+}
+
+tooltip label {
+  color: #121212;
+}
+
+#tray {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10;
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.5);
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  border-radius: 10px;
+}
+
+#tray menu {
+  background: rgba(65, 85, 120, 0.5);
+  color: #cccccc;
+  border-radius: 10px;
+  border: 2px solid rgba(10, 10, 10, 0);
+  padding: 4px 0;
+  font-family: "JetBrains Mono Nerd Font", monospace;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#window {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#battery {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#network {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#backlight {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#clock {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#logo {
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#updates {
+  color: #cccccc;
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
+
+#pulseaudio {
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 10px;
+}
