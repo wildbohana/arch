@@ -1,15 +1,11 @@
 # Background
-#swaybg -m fill -i ~/png/lod.png &
 #swaybg -m fill -i ~/png/The_Great_Wave.jpg &
 swaybg -m fill -i ~/png/planne_faded.jpg &
-#swaybg -m fill -i ~/png/lake-cabin.jpg &
-#swaybg -m fill -i ~/png/noir.jpg &
-#swaybg -m fill -i ~/png/ssw.jpg &
 
 # Tap to click
 riverctl input pointer-2-7-SynPS/2_Synaptics_TouchPad tap enabled &
 
-# Misc:
+# Startup:
 river-tag-overlay &
 
 rivertile &
@@ -45,7 +41,7 @@ riverctl map normal Super Escape exit &
 # Toggle fullscreen
 riverctl map normal Super F toggle-fullscreen &
 # Screenshot
-riverctl map normal Super P spawn "grim && mv *png png/screensh" &
+riverctl map normal Super P spawn "grim && mv *png png/ss" &
 
 # Brightness
 riverctl map normal Super F2 spawn "lightctl --down" &
@@ -58,7 +54,7 @@ riverctl map normal Super F11 spawn "playerctl next"
 
 # TODO:
 # Aeroplane mode
-# riverctl map normal Super F12
+# riverctl map normal Super F12 <aeroctl>
 
 # Volume control
 riverctl map normal Super F6 spawn "pamixer -t" &
