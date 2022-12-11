@@ -29,11 +29,11 @@ const char state1[] =
 
 // Frame 2
 const char state2[] =
-"         \n\
-    _ o   \n\
-     /\\  \n\
-    / \\  \n\
-          \n\
+"        \n\
+   _ o   \n\
+    /\\  \n\
+   / \\  \n\
+         \n\
 ";
 
 // Frame 3
